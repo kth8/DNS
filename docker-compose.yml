@@ -1,0 +1,12 @@
+---
+version: "3"
+services:
+  edge-tts:
+    image: docker.io/travisvn/openai-edge-tts:latest
+    container_name: edge-tts
+    restart: unless-stopped
+    init: true
+    ports:
+      - "5050:5050"
+    environment:
+      REQUIRE_API_KEY: False

@@ -1,0 +1,8 @@
+requests
+rich
+python-dotenv
+google-generativeai
+discord-webhook
+duckduckgo_search
+openai
+python-ffmpeg
