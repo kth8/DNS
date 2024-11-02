@@ -73,11 +73,11 @@ def generate_summary(model, search, show_prompt, results):
 def send_to_discord_webhook(summary, webhook_url, mp4):
     summary_length = len(summary)
     if summary and summary_length < 2000:
-        console.print(f"Summary sent to Discord. Length: {summary_length} characters", style="bold green")
         webhook = DiscordWebhook(url=webhook_url, content=summary)
         with open(mp4, "rb") as f:
             webhook.add_file(file=f.read(), filename=mp4)
         webhook.execute()
+        console.print(f"Summary sent to Discord. Length: {summary_length} characters", style="bold green")
     else:
         console.print(f"Could not send to Discord. Summary length {summary_length} longer than 2000.", style="bold red")
 
@@ -87,7 +87,7 @@ def main():
     try:
         configure_api(api_key)
         model = create_model("gemini-1.5-flash-001", system_instruction)
-        results = fetch_news_headlines(keywords=args.search, num_results=args.results)
+        results = fetch_news_headlines(args.search, args.results)
         summary = generate_summary(model, args.search, args.prompt, results)
         mp4 = tts.main(summary, tts_host, tts_port, args.search)
         send_to_discord_webhook(summary, webhook_url, mp4)

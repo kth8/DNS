@@ -13,14 +13,14 @@ pip install -r requirements.txt
 docker compose up -d
 cp .env.example .env
 ```
-edit the `.env` file with your API key and wekhook URL then run:
+edit the `.env` file with your API key and webhook URL then run:
 ```
-$ python main.py android
+$ python main.py github
 Edge-TTS server at 127.0.0.1:5050 is accessible
-Mp3 file saved to android.mp3
-Thumbnail saved https://tse2.mm.bing.net/th?id=OIP.wwSRKkPSrIvOSP2I6J0OtQHaEo&pid=Api as android.jpg
-Combined android.mp3 and android.jpg into android.mp4
-Deleted android.mp3 and android.jpg
-Summary sent to Discord. Length: 1697 characters
+Mp3 file saved to github.mp3
+Thumbnail saved https://tse3.mm.bing.net/th?id=OIP.FZGVRUnLT0WHCUnE3lPNrwHaF7&pid=Api as github.jpg
+Combined github.mp3 and github.jpg into github.mp4
+Deleted github.mp3 and github.jpg
+Summary sent to Discord. Length: 1457 characters
 ```
-if everything works you should see something like this in your Discord channel. ![screenshot](./screenshot.png)
+if everything works you should see something like this in your Discord channel: ![screenshot](./screenshot.png)
